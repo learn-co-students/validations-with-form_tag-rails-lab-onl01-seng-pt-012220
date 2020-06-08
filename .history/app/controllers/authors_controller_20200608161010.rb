@@ -9,6 +9,7 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(author_params)
+    binding.pry
     if @author.valid?
       @author.save
       redirect_to author_path(@author)
@@ -20,6 +21,6 @@ class AuthorsController < ApplicationController
   private
 
   def author_params
-    params.permit(:name, :email, :phone_number)
+    params.require(:author).permit(:name, :email, :phone_number)
   end
 end

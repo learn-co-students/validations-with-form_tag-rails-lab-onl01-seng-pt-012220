@@ -4,10 +4,8 @@ class Author < ActiveRecord::Base
     validates :phone_number, length: {:is => 10}#, exclusion: {within: %w("555035995"), message: "%{value} is bad"}
     #validate :validate_email, :validate_phone_number
     def validate_email
-        if self.email
-            if self.email.include?("bro@sbahj.info")
-                errors.add(:email, "is invalid")
-            end
+        if self.email.include?("bro@sbahj.info")
+            errors.add(:email, "is invalid")
         end
     end
 
