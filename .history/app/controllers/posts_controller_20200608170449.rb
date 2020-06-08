@@ -5,6 +5,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.is_a?(Post)
+      render :edit
+    else
+      @post = Post.new
+      render :edit
+    end
   end
 
   def update

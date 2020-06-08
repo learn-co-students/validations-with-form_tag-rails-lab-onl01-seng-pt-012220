@@ -1,8 +1,8 @@
 class Author < ActiveRecord::Base
     validates :name, presence: {:message => "must not be blank"}
-    validates :email, uniqueness: {:message => "has an account already"}#, exclusion: {within: %w("bro@sbahj.info"), message: "%{value} is bad"}
-    validates :phone_number, length: {:is => 10}#, exclusion: {within: %w("555035995"), message: "%{value} is bad"}
-    #validate :validate_email, :validate_phone_number
+    validates :email, uniqueness: {:message => "has an account already"}
+    validates :phone_number, length: {:is => 10}
+    validate :validate_email, :validate_phone_number
     def validate_email
         if self.email
             if self.email.include?("bro@sbahj.info")

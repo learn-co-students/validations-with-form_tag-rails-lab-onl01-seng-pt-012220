@@ -11,18 +11,18 @@
     </div>
   <% end %>
   <div class="field<%= ' field_with_errors' if @author.errors[:name].any? %>">
-    <%= label_tag "name", "Name" %>
-    <%= text_field_tag "name", @author.name %>
+    <%= label_tag "author[name]", "Name" %>
+    <%= text_field_tag "author[name]", @author.name %>
   </div>
 
   <div class="field<%= ' field_with_errors' if @author.errors[:email].any? %>">
-    <%= label_tag "email", "Email" %>
-    <%= text_field_tag "email", @author.email %>
+    <%= label_tag "author[email]", "Email" %>
+    <%= text_field_tag "author[email]", @author.email %>
   </div>
 
   <div class="field<%= ' field_with_errors' if @author.errors[:phone_number].any? %>">
-    <%= label_tag "phone_number", "Phone Number" %>
-    <%= text_field_tag "phone_number", @author.phone_number %>
+    <%= label_tag "author[phone_number]", "Phone Number" %>
+    <%= text_field_tag "author[phone_number]", @author.phone_number %>
   </div>
 
   <%= submit_tag "Create" %>
