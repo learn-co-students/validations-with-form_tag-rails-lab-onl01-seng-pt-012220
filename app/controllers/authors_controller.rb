@@ -8,9 +8,16 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @author = Author.create(author_params)
-
-    redirect_to author_path(@author)
+    @author = Author.new(author_params)
+    if @author.valid?
+      @author.save
+      flash[:success] = "The author has been successfully created."
+      redirect_to author_path(@author)
+    else
+      flash.now[:error] = "Unable to create the author, please correct the following errors:"
+      render :new
+    end
+    
   end
 
   private
